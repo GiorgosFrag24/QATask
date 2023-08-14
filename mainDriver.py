@@ -5,6 +5,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import pytest
 import yaml
 
+
 class MainDriverClass:
 
     desiredCapabilities = {}
