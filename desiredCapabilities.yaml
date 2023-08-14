@@ -1,0 +1,6 @@
+platformName: Android
+appPackage: io.appium.android.apis
+appActivity: io.appium.android.apis.ApiDemos
+deviceName: af6d80d3
+automationName: uiautomator2
+useAdbShell: True
