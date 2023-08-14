@@ -63,5 +63,5 @@ class TestScripts:
         logging.info('Sleeping for 30 seconds')
         time.sleep(30)
         polling.poll(lambda: 'gone off' in alarmControllerPage.getToastMessageElementText(),
-                     step=1, timeout=60, ignore_exceptions=(NoSuchElementException,))
+                     step=2, timeout=60, ignore_exceptions=(NoSuchElementException,))
         logging.info('The text "gone off" is contained in the second alert\'s text')
