@@ -1,8 +1,7 @@
 import logging
 import polling
-from appium.webdriver.common.mobileby import MobileBy
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import time
-import selenium
 from pageClasses import *
 
 
@@ -54,6 +53,6 @@ class TestScripts:
         logging.info('The text "30 seconds" is contained in the first alert\'s text')
         logging.info('Sleeping for 30 seconds')
         time.sleep(30)
-        polling.poll(lambda: 'gone off' in self.driver.find_element(MobileBy.XPATH, "//android.widget.Toast").text,
-                     step=1, timeout=60, ignore_exceptions=(selenium.common.exceptions.NoSuchElementException,))
+        polling.poll(lambda: 'gone off' in alarmControllerPage.getToastMessageElementText(),
+                     step=1, timeout=60, ignore_exceptions=(NoSuchElementException,))
         logging.info('The text "gone off" is contained in the second alert\'s text')
