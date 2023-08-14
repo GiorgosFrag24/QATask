@@ -7,6 +7,6 @@ class HomePage(BasePage):
 
     def getAppButton(self):
         listOfClickableElements = self.getListOfClickableElements()
-        return self.driver.getChildElementFromParent(listOfClickableElements, self._xpathLocatorAppButton)
+        return self.driver.getChildElementFromParent(listOfClickableElements, self._xpathLocatorAppButton, 'XPATH')
 
 

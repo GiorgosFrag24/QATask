@@ -6,6 +6,6 @@ class AppPage(BasePage):
 
     def getAlarmButton(self):
         listOfClickableElements = self.getListOfClickableElements()
-        return self.driver.getChildElementFromParent(listOfClickableElements, self._xpathLocatorAlarmButton)
+        return self.driver.getChildElementFromParent(listOfClickableElements, self._xpathLocatorAlarmButton, 'XPATH')
 
 

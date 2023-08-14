@@ -2,7 +2,6 @@ import logging
 from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
-import pytest
 import yaml
 
 
@@ -11,23 +10,16 @@ class MainDriverClass:
     desiredCapabilities = {}
     driver = None
 
-    @pytest.fixture
-    def setUpDriver(self):
+    def __init__(self):
         logging.info("Setting up driver with the desired capabilities")
         with open('desiredCapabilities.yaml', 'r') as desiredCapabilitiesFile:
             desiredCapabilities = yaml.safe_load(desiredCapabilitiesFile)
         self.driver = webdriver.Remote("http://127.0.0.1:4723", desiredCapabilities)
 
-    @pytest.fixture
-    def tearDownDriver(self):
-        logging.info("Tearing down")
-        self.driver.quit()
-
-    @staticmethod
-    def getElementById(self, locator, timeout=10):
+    def getElementById(self, locator):
         try:
             logging.info(f'Attempting to find element with locator:"{locator}" and locator type "ID" ')
-            element = self.driver.find_element(MobileBy.ID, locator, timeout)
+            element = self.driver.find_element(MobileBy.ID, locator)
             logging.info(f'Found the requested element with locator:"{locator}" and locator type "ID"')
             return element
         except NoSuchElementException:
@@ -37,11 +29,10 @@ class MainDriverClass:
         except Exception as exception:
             logging.error(f'An unexpected error occurred. {exception}')
 
-    @staticmethod
     def getElementByClass(self, locator, timeout=10):
         try:
             logging.info(f'Attempting to find element with locator:"{locator}" and locator type "Class Name" ')
-            element = self.driver.find_element(MobileBy.CLASS_NAME, locator, timeout)
+            element = self.driver.find_element(MobileBy.CLASS_NAME, locator)
             logging.info(f'Found the requested element with locator:"{locator}" and locator type "Class Name"')
             return element
         except NoSuchElementException:
@@ -51,11 +42,10 @@ class MainDriverClass:
         except Exception as exception:
             logging.error(f'An unexpected error occurred. {exception}')
 
-    @staticmethod
     def getElementByXpath(self, locator, timeout=10):
         try:
             logging.info(f'Attempting to find element with locator:"{locator}" and locator type "XPATH" ')
-            element = self.driver.find_element(MobileBy.XPATH, locator, timeout)
+            element = self.driver.find_element(MobileBy.XPATH, locator)
             logging.info(f'Found the requested element with locator:"{locator}" and locator type "XPATH"')
             return element
         except NoSuchElementException:
@@ -77,7 +67,6 @@ class MainDriverClass:
             case "XPATH":
                 return parentElement.find_element(MobileBy.XPATH, childLocator)
 
-    @staticmethod
     def getElementText(self, element):
         logging.info(f'Retrieving the text of requested element')
         return element.text
