@@ -42,19 +42,11 @@ class MainDriverClass:
         except Exception as exception:
             logging.error(f'An unexpected error occurred. {exception}')
 
-    def getElementByXpath(self, locator, timeout=10):
-        try:
-            logging.info(f'Attempting to find element with locator:"{locator}" and locator type "XPATH" ')
-            element = self.driver.find_element(MobileBy.XPATH, locator)
-            logging.info(f'Found the requested element with locator:"{locator}" and locator type "XPATH"')
-            return element
-        except NoSuchElementException:
-            logging.error(f'No element could be found with locator:"{locator}" and locator type "XPATH"')
-        except TimeoutException:
-            logging.error(
-                f'Timed out after trying to find element with locator:"{locator}" and locator type "XPATH"')
-        except Exception as exception:
-            logging.error(f'An unexpected error occurred. {exception}')
+    def getElementByXpath(self, locator):
+        logging.info(f'Attempting to find element with locator:"{locator}" and locator type "XPATH" ')
+        element = self.driver.find_element(MobileBy.XPATH, locator)
+        logging.info(f'Found the requested element with locator:"{locator}" and locator type "XPATH"')
+        return element
 
     @staticmethod
     def getChildElementFromParent(parentElement, childLocator, locatorType):

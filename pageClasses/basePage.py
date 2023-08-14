@@ -1,11 +1,10 @@
 from appium.webdriver.common.mobileby import MobileBy
-from mainDriver import MainDriverClass as Driver
 
 
 class BasePage:
-    driver = Driver()
 
-    def __init__(self):
+    def __init__(self, appDriver):
+        self.driver = appDriver
         self._idLocatorOfMainHeader = "android:id/action_bar"
         self._classLocatorOfMainHeaderText = "android.widget.TextView"
         self._idLocatorOfClickableElementsList = 'android:id/list'
