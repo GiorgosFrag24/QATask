@@ -29,7 +29,7 @@ class MainDriverClass:
         except Exception as exception:
             logging.error(f'An unexpected error occurred. {exception}')
 
-    def getElementByClass(self, locator, timeout=10):
+    def getElementByClass(self, locator):
         try:
             logging.info(f'Attempting to find element with locator:"{locator}" and locator type "Class Name" ')
             element = self.driver.find_element(MobileBy.CLASS_NAME, locator)
@@ -59,6 +59,7 @@ class MainDriverClass:
             case "XPATH":
                 return parentElement.find_element(MobileBy.XPATH, childLocator)
 
+    @staticmethod
     def getElementText(self, element):
         logging.info(f'Retrieving the text of requested element')
         return element.text

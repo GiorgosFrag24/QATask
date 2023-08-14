@@ -3,7 +3,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-
 class AlarmControllerPage:
 
     _xpathLocatorOneShotAlarmButton = "//*[contains(@text, 'ONE SHOT ALARM')]"
