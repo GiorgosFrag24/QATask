@@ -1,10 +1,9 @@
-import pytest
-import yaml
+import logging
 from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
-import logging
-
+import pytest
+import yaml
 
 class MainDriverClass:
 

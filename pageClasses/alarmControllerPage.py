@@ -1,4 +1,3 @@
-from mainDriver import MainDriverClass as Driver
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait

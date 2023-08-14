@@ -1,6 +1,5 @@
-from mainDriver import MainDriverClass as Driver
 from appium.webdriver.common.mobileby import MobileBy
-
+from mainDriver import MainDriverClass as Driver
 
 class BasePage:
 

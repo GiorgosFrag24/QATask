@@ -1,8 +1,8 @@
 import logging
-import polling
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import time
+from selenium.common.exceptions import NoSuchElementException
 from pageClasses import *
+import polling
 
 
 class TestScripts:

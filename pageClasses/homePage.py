@@ -1,4 +1,3 @@
-from mainDriver import MainDriverClass as Driver
 from pageClasses.basePage import BasePage
 
 
