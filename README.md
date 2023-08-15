@@ -25,6 +25,13 @@ Enable the following options on 'Developer Options' :
 If you would like to run the tests on an emulated device, follow the instructions listed on
 https://appium.io/docs/en/2.0/quickstart/uiauto2-driver
 
+Make sure to change the field 'deviceName' on the file 'desiredCapabilities.yaml' to correspond
+to your (physical) device's name. 
+
+To check your connected devices, type 'adb devices' in the command line. 
+
+If adb is not recognized, download Android SDK tools and add \Android\Sdk\platform-tools to your PATH environment variable.
+
 # Running tests instructions
 
 Start the Appium server by typing 'appium' in the command line.
