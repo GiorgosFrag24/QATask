@@ -8,7 +8,8 @@ import polling
 
 
 class TestScripts:
-    driver = Driver()  # This driver instance is used to share test state across tests
+
+    driver = Driver()
 
     @pytest.mark.run(order=1)
     def testValidateHeaderTitle(self):
